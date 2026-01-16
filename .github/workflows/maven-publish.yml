@@ -37,8 +37,14 @@ jobs:
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Check token identity
+      run: |
+        curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+             https://api.github.com/user
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn -B deploy
+      run: cat $GITHUB_WORKSPACE/settings.xml || mvn -B deploy
       env:
         GITHUB_DEPLOY_USER: github-actions
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
