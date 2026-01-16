@@ -25,26 +25,8 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }}
         server-username: GITHUB_DEPLOY_USER
-    - name: Debug settings.xml
-      run: cat $GITHUB_WORKSPACE/settings.xml
-    - name: Check GITHUB_TOKEN presence
-      run: |
-        if [ -z "$GITHUB_TOKEN" ]; then
-          echo "GITHUB_TOKEN is NOT set"
-          exit 1
-        else
-          echo "GITHUB_TOKEN is set"
-        fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Check token identity
-      run: |
-        curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-             https://api.github.com/user
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish to GitHub Packages Apache Maven
-      run: cat $GITHUB_WORKSPACE/settings.xml || mvn -B deploy
+      run: mvn -X deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_DEPLOY_USER: github-actions
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
