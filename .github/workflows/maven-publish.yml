@@ -24,6 +24,7 @@ jobs:
         distribution: 'temurin'
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }}
+        server-username: github-actions
     - name: Debug settings.xml
       run: cat $GITHUB_WORKSPACE/settings.xml
     - name: Publish to GitHub Packages Apache Maven
