@@ -1,7 +1,8 @@
 # mcpd-sdk-java
 
-[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](
-https://www.apache.org/licenses/LICENSE-2.0)
+[![GitHub Actions Build](https://github.com/bbonnin/mcpd-sdk-java/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/bbonnin/mcpd-sdk-java/actions/workflows/maven-publish.yml)
+[![GitHub tag](https://img.shields.io/github/tag/bbonnin/mcpd-sdk-java)](https://github.com/bbonnin/mcpd-sdk-java/tags)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 ![Java](https://img.shields.io/badge/Java-21%2B-informational)
 
 
