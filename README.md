@@ -64,10 +64,7 @@ System.out.println(result);
 See [Test.java](src/main/java/io/github/brunolab/mcpd/test/Test.java)
 
 ```java
-List<McpSchema.Tool> tools = client.toAgentTools("time");
-
 McpClient client = new ToolClient.Builder()
-        .tools(tools)
         .mcpdClient(client)
         .serverName("time")
         .build();
